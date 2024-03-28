@@ -29,7 +29,7 @@ public class UserService {
 
         userRepository.save(user);
 
-        //notificationProducer.sendNotification(prepareNotificationDTO(NotificationType.EMAIL, user.getEmail()));
+        notificationProducer.sendNotification(prepareNotificationDTO(NotificationType.EMAIL, user.getEmail()));
 
         return user;
     }
