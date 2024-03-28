@@ -2,6 +2,7 @@ package com.patika.kredinbizdeservice.service;
 
 import com.patika.kredinbizdeservice.exceptions.ExceptionMessages;
 import com.patika.kredinbizdeservice.exceptions.KredinbizdeException;
+import com.patika.kredinbizdeservice.model.Application;
 import com.patika.kredinbizdeservice.model.User;
 import com.patika.kredinbizdeservice.producer.NotificationProducer;
 import com.patika.kredinbizdeservice.producer.dto.NotificationDTO;
@@ -28,7 +29,7 @@ public class UserService {
 
         userRepository.save(user);
 
-        notificationProducer.sendNotification(prepareNotificationDTO(NotificationType.EMAIL, user.getEmail()));
+        //notificationProducer.sendNotification(prepareNotificationDTO(NotificationType.EMAIL, user.getEmail()));
 
         return user;
     }
@@ -62,11 +63,11 @@ public class UserService {
 
         // throw new NullPointerException();
 
-         throw new IllegalArgumentException("exception fırlatıldı");
+         //throw new IllegalArgumentException("exception fırlatıldı");
 
         // throw new ArithmeticException();
 
-       // return user;
+        return user;
 
     }
 
@@ -87,5 +88,16 @@ public class UserService {
 
     public User getById(Long userId) {
         return userRepository.findByUserId(userId);
+    }
+    
+    public List<Application> getAllUserApplications(String email){
+    	Optional<User> foundUser = userRepository.findByEmail(email);
+
+        User user = foundUser.orElseThrow(() -> new KredinbizdeException(ExceptionMessages.USER_NOT_FOUND));
+
+        if (foundUser.isPresent()) {
+            user = foundUser.get();
+        }
+        return user.getApplicationList();
     }
 }

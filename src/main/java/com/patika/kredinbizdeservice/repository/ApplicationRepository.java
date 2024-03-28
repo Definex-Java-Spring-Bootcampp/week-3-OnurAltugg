@@ -13,4 +13,8 @@ public class ApplicationRepository {
         applicationList.add(application);
         return application;
     }
+    
+    public List<Application> getAll(){
+    	return applicationList;
+    }
 }

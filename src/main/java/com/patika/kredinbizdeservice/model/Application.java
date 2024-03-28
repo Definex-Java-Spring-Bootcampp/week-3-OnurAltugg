@@ -1,6 +1,7 @@
 package com.patika.kredinbizdeservice.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.patika.kredinbizdeservice.enums.ApplicationStatus;
 
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ public class Application {
 
     private Loan loan;
     private Product product;
+    @JsonIgnore
     private User user;
     private LocalDateTime createDate;
     private ApplicationStatus applicationStatus;

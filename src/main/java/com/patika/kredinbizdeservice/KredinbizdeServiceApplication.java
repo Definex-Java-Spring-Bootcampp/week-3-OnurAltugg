@@ -12,20 +12,5 @@ public class KredinbizdeServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(KredinbizdeServiceApplication.class, args);
-
-        //IUserService userService = new UserService();
-
-        //IUserService userService2 = new UserService2();
-
-        //UserController userController = new UserController(userService);
-       // userController.create(new User());
     }
-
-    /*
-    @Bean
-    @Scope("prototype")
-    public IUserService userService() {
-        return new UserService();
-    }*/
-
 }

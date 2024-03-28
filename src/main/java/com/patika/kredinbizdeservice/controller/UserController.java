@@ -1,5 +1,6 @@
 package com.patika.kredinbizdeservice.controller;
 
+import com.patika.kredinbizdeservice.model.Application;
 import com.patika.kredinbizdeservice.model.User;
 import com.patika.kredinbizdeservice.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,11 @@ public class UserController {
     @GetMapping("/{email}")
     public User getByEmail(@PathVariable String email) {
         return userService.getByEmail(email);
+    }
+    
+    @GetMapping("/apps/{email}")
+    public List<Application> getUsersApplications(@PathVariable String email) {
+        return userService.getAllUserApplications(email);
     }
 
     @PutMapping("/{email}")

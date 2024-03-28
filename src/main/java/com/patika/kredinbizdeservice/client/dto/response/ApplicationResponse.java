@@ -15,4 +15,6 @@ public class ApplicationResponse {
     private Long userId;
     private LocalDateTime createDate;
     private ApplicationStatus applicationStatus;
+    
+    
 }

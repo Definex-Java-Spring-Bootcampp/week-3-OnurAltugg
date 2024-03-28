@@ -7,12 +7,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+//@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ExceptionMessages {
 
-   /* private ExceptionMessages(){
+   private ExceptionMessages(){
 
-    }*/
+    }
 
     public static final String USER_NOT_FOUND = "user bulunamadı!";
 }
